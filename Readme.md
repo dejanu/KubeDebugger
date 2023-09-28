@@ -11,7 +11,7 @@ docker run --rm -it dejanualex/curlopenssl:1.0
 # explicit 
 docker run -rm -itu 0 dejanualex/curlopenssl:1.0  /bin/sh
 ```
---
+---
 
 * Start pod with interactive shell:
 ```bash
@@ -19,7 +19,7 @@ kubectl  run curlopenssl -i --tty --image=dejanualex/curlopenssl:1.0  -- sh
 # if Session ended, resume using
 kubectl  attach curlopenssl -c curlopenssl -i -t
 ```
---
+---
 
 ### Mssql-tools
 
@@ -40,7 +40,7 @@ kubectl run mymsssql -i --tty --image=dejanualex/mssql-tools:1.0
 # if Session ended, resume using
 kubectl attach mymsssql -c mymsssql -i -t
 ```
---
+---
 
 ### PGadmin
 
