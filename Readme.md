@@ -22,7 +22,7 @@ kubectl  attach curlopenssl -c curlopenssl -i -t
 ### Mssql-tools
 
 * Dockerhub repo [dejanualex/mssql-tools](https://hub.docker.com/repository/docker/dejanualex/mssql-tools/general)
-* SQL Server Command Line Tool Version 13.1.0007: sqlcmd and bcp utilities
+* SQL Server Command Line Tool Version 13.1.0007: `sqlcmd` and `bcp` utilities
 
 * Start container with interactive shell:
 ```bash
@@ -42,9 +42,9 @@ kubectl attach mymsssql -c mymsssql -i -t
 ### PGadmin
 
 * Dockerhub repo [dejanualex/pgadmin4](https://hub.docker.com/repository/docker/dejanualex/pgadmin4/general)
-* pgAdmin verision 7: management tool for PostgreSQL
+* pgAdmin version 7: management tool for PostgreSQL
 
-* Run the following to generate credentials file:
+* Run the following to generate the credentials file:
 ```bash
 # change them
 cat<<EOF>>.env
