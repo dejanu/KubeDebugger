@@ -1,4 +1,7 @@
-## Containers with tools
+## Image with tools
+
+* If the container image includes debugging utilities just follow this guide:
+
 
 ### OpenSSL
 
@@ -44,15 +47,14 @@ kubectl attach mymsssql -c mymsssql -i -t
 * Dockerhub repo [dejanualex/pgadmin4](https://hub.docker.com/repository/docker/dejanualex/pgadmin4/general)
 * pgAdmin version 7: management tool for PostgreSQL
 
-* Run the following to generate the credentials file:
+*  Start container in background: 
+
 ```bash
-# change them
+# Run the following to generate the credentials file change them
 cat<<EOF>>.env
 PGADMIN_DEFAULT_EMAIL=alexandru.dejanu@email.com
 PGADMIN_DEFAULT_PASSWORD=test123
 EOF
-```
-* Start container in background:
-```bash
+
 docker run -p 5050:80 --env-file .env  dejanualex/pgadmin4:1.0 -d
 ```
