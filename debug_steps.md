@@ -1,4 +1,4 @@
-## Debuging containers in PODs
+## Debugging containers in PODs
 
 ### Standard way:
 
@@ -24,9 +24,9 @@ kubect exec POD_NAME -- ls
 
 ### Fancy way
 
-* If you don't have the desired binaries or shell in the container, you can add a **debugging container**:
-
+* If you don't have the desired binaries or shell in the container, you can add a **debugging container**, [a selection of images](https://github.com/dejanu/imgtls/blob/main/Readme.md) that can be used as debugging containers
+  
 ```bash
-# starting a debug contaiener based on a image that has bash
+# starting a debug container based on an image that has bash
 kubectl debug pods/POD_NAME --image IMAGE_NAME -it --target CONTAINER_NAME -- bash
 ```
