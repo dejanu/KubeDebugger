@@ -1,6 +1,6 @@
 ## Image with tools
 
-* If the container image includes debugging utilities just follow this guide:
+* If the container image includes debugging utilities just follow this [guide](https://github.com/dejanu/imgtls/blob/main/debug_steps.md)
 
 
 ### OpenSSL
