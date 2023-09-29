@@ -3,7 +3,7 @@
 * If the container image includes debugging utilities just follow this [guide](https://github.com/dejanu/imgtls/blob/main/debug_steps.md)
 
 
-### OpenSSL
+### OpenSSL + cURL
 
 * Dockerhub repo [dejanualex/curlopenssl](https://hub.docker.com/repository/docker/dejanualex/curlopenssl/general)
 * OpenSSL 3.1.3 19 Sep 2023 (Library: OpenSSL 3.1.3 19 Sep 2023)
