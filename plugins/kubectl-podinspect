@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## plugin purpose: list containers and images for a certain pod
-# plugin usage: kubectl podinspect <namespace>
+## plugin usage: kubectl podinspect <namespace>
 
 # Check if namespace is provided as argument
 if [ -z "$1" ]
