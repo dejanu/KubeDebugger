@@ -1,7 +1,8 @@
 ## Images with tools
 
-* If the container image includes debugging utilities just follow this [guide](https://github.com/dejanu/imgtls/blob/main/debug_steps.md)
+* If the container image includes debugging utilities just follow this [guide](https://github.com/dejanu/KubeDebugger/blob/main/debug_steps.md)
 
+* Plugins for `kubectl` [here](https://github.com/dejanu/KubeDebugger/blob/main/plugins/readme.md)
 
 ### OpenSSL + cURL
 
