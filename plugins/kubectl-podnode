@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+## plugin purpose: Display Resource (CPU/Memory) usage and pods scheduled on the desired node
+## plugin usage: kubectl podnode <nodename>
+
+# check if node name is provided as argument
+if [ -z "$1" ]
+then
+    echo "Usage: kubectl podnode <nodename>"
+    echo "Current nodes are:"
+    kubectl get nodes
+    exit 1
+else
+    # list pods running on the node
+    kubectl get po -A --field-selector spec.nodeName="$1"
+fi
