@@ -18,6 +18,6 @@ export PATH=`pwd`:"$PATH"
 ### PLugin execution (POSIX)
 
 ```mermaid
-flowchart LR;
+graph LR;
 A[kubectl] -->|execve(2) syscall| B(kubectl-foo)
 ```
