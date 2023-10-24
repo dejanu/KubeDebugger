@@ -19,6 +19,5 @@ export PATH=`pwd`:"$PATH"
 
 ```mermaid
 flowchart LR;
-
 A[kubectl] -->|execve(2) syscall| B(kubectl-foo)
 ```
