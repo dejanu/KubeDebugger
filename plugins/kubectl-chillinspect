@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+## plugin purpose: list containers and images for a certain pod
+## plugin usage: kubectl chillinspect
+
+# play m4a file
+afplay ~/Desktop/Git_projects/KubeDebugger/plugins/chemin.m4a & disown
+
+# read namespaces
+printf "\n Available namespaces are:\n $(kubectl get ns -o=custom-columns=NAMESPACES:.metadata.name) \n\t"
+printf "\n \e[0;32m Please write the name of the namespace for which you want to know the list pod objects: \e[0m \n"
+read -r ns
+
+# list all pods from the selected namespace
+kubectl -n "${nspace}" get po -o=custom-columns=PODs:.metadata.name
+printf "\n \e[0;32m Please select a pod from ${ns} namespace: \e[0m \n"
+read pod_name
+
+while true; do
+
+    # ask user what he would like to inspect: containers,images,logs,resource usage
+    printf "\n  \e[0;32m What would you like to inspect? \e[0m \n"
+    printf "\n  1. Containers \n"
+    printf "\n  2. Images \n"
+    printf "\n  3. Logs \n"
+    printf "\n  4. Resource usage \n"
+    printf "\n  5. Exit \n"
+    read -r choice
+
+    case $choice in
+    1)
+        # Get containers running in the pod
+        containers=$(kubectl get pod $pod_name -n $ns -o jsonpath="{.spec.containers[*].name}")
+        echo -e "\n\n  🔎 Containers running in the pod: ${containers} \n"
+        ;;
+    2)
+        # Get images used by the containers
+        images=$(kubectl get pod $pod_name -n $ns -o jsonpath="{.spec.containers[*].image}")
+        echo -e "\n\n  🔎 Images used by the containers: ${images} \n"
+        ;;
+    3)
+        # Get logs 
+        echo -e "\n\n  🔎 Logs from the container: ${container} \n"
+        kubectl logs $pod_name -n $ns
+        ;;
+    4)
+        # Get resource usage for POD
+        echo -e "\n\n  🔎 Resource usage from the pod: ${pod_name} \n"
+        kubectl top pod $pod_name -n $ns 
+        ;;
+    5 )
+    # [Nn][Oo])
+        echo -e "\n Exiting... \n"
+        break
+        ;;
+    *)
+        echo -e "\n Invalid choice. Please chose \n"
+        ;;
+    esac
+done

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+## plugin purpose: list containers from a certain pod
+## plugin usage: kubectl container <namespace> <pod>
+
+# Check if namespace is provided as argument
+if [ -z "$1" ]
+then
+    echo "Usage: kubectl container <namespace> <pod>"
+    echo "Current namespaces are:"
+    kubectl get ns
+    exit 1
+fi
+
+# Check if pod is provided as argument
+if [ -z "$2" ]
+then
+    echo "Usage: kubectl container <namespace> <pod>"
+    echo "Current pods are:"
+    kubectl get pods -n $1
+    exit 1
+fi  
+
+# run kubectl command to get containers and output pretty
+kubectl -n $1 get  po $2 -o jsonpath="{.spec.containers[*].name}" | tr " " "\n" | sort | uniq
+
+
