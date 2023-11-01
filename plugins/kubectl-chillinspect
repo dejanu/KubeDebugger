@@ -11,10 +11,18 @@ printf "\n Available namespaces are:\n $(kubectl get ns -o=custom-columns=NAMESP
 printf "\n \e[0;32m Please write the name of the namespace for which you want to know the list pod objects: \e[0m \n"
 read -r ns
 
-# list all pods from the selected namespace
-kubectl -n "${nspace}" get po -o=custom-columns=PODs:.metadata.name
-printf "\n \e[0;32m Please select a pod from ${ns} namespace: \e[0m \n"
-read pod_name
+# one more chance to get the namespace right :)
+if kubectl get ns | grep -q $ns; then
+    # list all pods from the selected namespace
+    kubectl -n "${nspace}" get po -o=custom-columns=PODs:.metadata.name
+    printf "\n \e[0;32m Please select a pod from ${ns} namespace: \e[0m \n"
+    read pod_name
+else
+    # list the namespaces again and aks the user to select a namespace
+    printf "\n \e[0;32m The namespace ${ns} does not exist. Please select a namespace from the list below: \e[0m \n"
+    printf "\n Available namespaces are:\n $(kubectl get ns -o=custom-columns=NAMESPACES:.metadata.name) \n\t"
+    read -r ns
+fi
 
 while true; do
 

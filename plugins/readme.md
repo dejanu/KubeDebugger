@@ -25,10 +25,6 @@ kubeclt crew install tree
 kubeclt tree <object>
 ```
 
-
-
-
-
 ### Manage plugins
 
 * Plugin index [krew](https://krew.sigs.k8s.io/plugins/), installation guide [here](https://krew.sigs.k8s.io/docs/user-guide/setup/install/#bash)

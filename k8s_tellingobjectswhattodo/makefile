@@ -37,6 +37,7 @@ patch_service:
 deploy_checks:
 	@echo "kubectl rollout status deployment webapp"
 	@echo "kubectl rollout history deployment webapp"
-	@echo "kubectl rollout undo deployment webapp"
+	@echo "kubectl rollout history deployment webapp --revision=1"
+	@echo "kubectl rollout undo deployment webapp --to-revision=1"
 deploy_change_image:
 	@echo "kubectl set image deployment webapp <container>=dejanualex/go_hello:1.1"
