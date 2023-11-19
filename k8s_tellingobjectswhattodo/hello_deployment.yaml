@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: goapp
-        image: dejanualex/go_hello:2.0
+        image: dejanualex/go_hello:1.0
         ports:
         - containerPort: 8888

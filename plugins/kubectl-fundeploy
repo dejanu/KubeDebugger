@@ -2,9 +2,12 @@
 
 ## plugin purpose: inspect a deployment and offer the option to do a rolling update
 
+# play m4a file
+afplay ~/Desktop/Git_projects/KubeDebugger/plugins/brrr.m4a & disown
+
 # read namespaces
-printf "\n Available namespaces are:\n $(kubectl get ns -o=custom-columns=NAMESPACES:.metadata.name) \n\t"
-printf "\n \e[0;32m Please write the name of the namespace for which you want to know the list pod objects: \e[0m \n"
+printf "\n Available namespaces are:\n $(kubectl get ns -o=custom-columns=NAMESPACES:.metadata.name) \n\t" | lolcat
+printf "\n \e[0;32m Please write the name of the namespace for which you want to know the list pod objects: \e[0m \n" | lolcat
 read -r ns
 
 
