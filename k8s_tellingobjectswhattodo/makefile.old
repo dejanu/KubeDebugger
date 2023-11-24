@@ -1,0 +1,30 @@
+.DEFAULT_GOAL := documentation
+
+documentation:
+	@echo "dockerstuff"
+	@echo "vm"
+	@echo "oci"
+	@echo "startapp"
+	@echo "declarative_deployment"
+	@echo "imperative_service"
+
+dockerstuff:
+	@echo "docker system info --format \"{{ .Runtimes }}\" "
+	@echo "docker system info --format \"{{ .DefaultRuntime }}\" "
+
+vm:
+	@echo "ssh -i ~/.ssh/id_rsa dej@52.174.82.47"
+
+oci:
+	@echo "docker run dejanualex/dockersay:2.0"
+	@echo "sudo ./rkt --insecure-options=image run docker://dejanualex/dockersay:2.1"
+	@echo "podman run docker.io/dejanualex/dockersay:2.1"
+
+startapp:
+	@echo "docker run -p 8888:8888 dejanualex/go_hello:1.0"
+
+declarative_deployment:
+	@echo "kubectl create -f hello_deployment.yaml"
+    
+imperative_service:
+	@echo "kubectl expose deploy webapp --name=webapp-svc --type="LoadBalancer" --port=8080 --target-port=8888"
