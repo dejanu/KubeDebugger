@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# pass args to kubectl
-kubectl "$@" | lolcat
