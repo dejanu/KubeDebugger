@@ -1,6 +1,7 @@
 ## Intro
 
 [Kubernetes Capacity 101](https://dejanualex.medium.com/kubernetes-capacity-101-51a7c3f939b6)
+
 There are two types of resources: CPU (measured in CPU units, `m` which stands for a thousandth of a core) and Memory (measured in bytes),
   the mechanisms through which Kubernetes controls resources such as CPU and Memory are **requests** and **limits**.
 
