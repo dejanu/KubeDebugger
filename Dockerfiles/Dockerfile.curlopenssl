@@ -10,5 +10,8 @@ RUN apk update && \
 # for older alpine versions
 # rm -rf /var/cache/apk/*
 
+WORKDIR /app
+
+COPY postgresql_reporter.sh /app/postgresql_reporter.sh
 # Set the default command to run when the container starts
 CMD ["/bin/sh"]

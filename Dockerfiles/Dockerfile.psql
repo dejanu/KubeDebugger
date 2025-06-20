@@ -1,0 +1,10 @@
+FROM alpine:latest
+
+RUN apk add --no-cache bash
+RUN apk add postgresql16-client
+
+WORKDIR /app
+
+COPY postgresql_reporter.sh /app/postgresql_reporter.sh
+
+CMD ["/bin/bash"]
