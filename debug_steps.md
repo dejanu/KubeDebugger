@@ -24,9 +24,12 @@ kubect exec POD_NAME -- ls
 
 ### Fancy way
 
-* If you don't have the desired binaries or shell in the container, you can add a **debugging container**, [a selection of images](https://github.com/dejanu/imgtls/blob/main/Readme.md) that can be used as debugging containers
+* If you don't have the desired binaries or shell in the container, you can add a **debug container**, [a selection of images](https://github.com/dejanu/imgtls/blob/main/Readme.md) that can be used as debug container
   
 ```bash
-# starting a debug container based on an image that has bash
-kubectl debug pods/POD_NAME --image IMAGE_NAME -it --target CONTAINER_NAME -- bash
+# starting a debug container based on an image that has sh
+kubectl debug pods/POD_NAME --image IMAGE_NAME -it --target CONTAINER_NAME -- sh
+
+# make it clear you want to join the namespaces of container nginx in that nginx POD
+kubectl debug nginx --image=busybox -it --target=nginx -- sh
 ```
